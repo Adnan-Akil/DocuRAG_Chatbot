@@ -1,13 +1,21 @@
-from langchain_groq import ChatGroq
-from dotenv import load_dotenv
+"""LLM module for generating final answers based on retrieved documents"""
+
 import os
+
+from dotenv import load_dotenv
+from langchain_groq import ChatGroq
+
 load_dotenv()
-groq_key=os.getenv("GROQ_API_KEY")
+groq_key = os.getenv("GROQ_API_KEY")
+
 
 def final_answer(retrieved_docs, user_query):
-  llm_model= ChatGroq(model='meta-llama/llama-4-scout-17b-16e-instruct',temperature=0.3)
+    """Generate a final answer using the retrieved documents and user query"""
+    llm_model = ChatGroq(
+        model="meta-llama/llama-4-scout-17b-16e-instruct", temperature=0.3
+    )
 
-  prompt = f"""
+    prompt = f"""
   You are a highly reliable, context‑driven assistant. Your goal is to answer user questions **only** using the information in the retrieved context.  
 
   1. ROLE  
@@ -41,5 +49,5 @@ def final_answer(retrieved_docs, user_query):
 
   """
 
-  llm_response = llm_model.invoke(prompt)
-  return (llm_response.content)
+    llm_response = llm_model.invoke(prompt)
+    return llm_response.content
