@@ -1,6 +1,6 @@
 """Data loader module for handling various document types"""
 
-import tempfile
+#import tempfile
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -13,8 +13,8 @@ embedding_model = HuggingFaceEmbeddings(
 
 splitter = RecursiveCharacterTextSplitter(chunk_size=1200, chunk_overlap=400)
 
-temp_db = tempfile.mkdtemp()
-vector_store = Chroma(embedding_function=embedding_model, persist_directory=temp_db)
+#temp_db = tempfile.mkdtemp()
+vector_store = Chroma(embedding_function=embedding_model, persist_directory=None)
 
 
 def build_index(combined_doc):

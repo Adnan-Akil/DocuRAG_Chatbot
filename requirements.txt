@@ -9,3 +9,4 @@ pymupdf
 langchain-groq
 dotenv
 openpyxl
+pysqlite3-binary

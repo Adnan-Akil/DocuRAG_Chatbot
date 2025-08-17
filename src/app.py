@@ -1,5 +1,9 @@
 """Application for a Q&A chatbot using uploaded documents"""
 
+import pysqlite3
+import sys
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+import sqlite3
 import streamlit as st
 from data_loader import document_handler
 from file_parser import build_index, vector_store, clear_vector_store

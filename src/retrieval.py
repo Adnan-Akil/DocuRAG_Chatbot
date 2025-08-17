@@ -10,7 +10,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
 
-from file_parser import temp_db
+#from file_parser import temp_db
 
 load_dotenv()
 groq_key = os.getenv("GROQ_API_KEY")
@@ -19,7 +19,7 @@ llm_model = ChatGroq(model="meta-llama/llama-4-scout-17b-16e-instruct", temperat
 embedding_model = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={"device": "cpu"}
 )
-vectordb = Chroma(persist_directory=temp_db, embedding_function=embedding_model)
+vectordb = Chroma(persist_directory=None, embedding_function=embedding_model)
 
 encoder_model = HuggingFaceCrossEncoder(
     model_name="cross-encoder/ms-marco-MiniLM-L-6-v2", model_kwargs={"device": "cpu"}
