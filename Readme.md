@@ -2,6 +2,7 @@
 
 A Retrieval-Augmented Generation (RAG) chatbot built with Python and Streamlit, integrating LangChain, HuggingFace embeddings, and a local vector database (ChromaDB) to deliver precise and context-aware responses from custom documents such as contracts, policies, or any text corpus.
 
+Access the chatbot hosted on Streamlit Cloud : https://docuragchatbot-kngarfajr3kn2wblrvb7kb.streamlit.app/
 
 ## 📌 Table of Contents
 
